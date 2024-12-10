@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demon Slayer Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 2em;
+    color: #ffcc00;
+}
+
+header nav a {
+    color: #ffcc00;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+.hero {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+}
+
+.scroll-menu {
+    display: flex;
+    align-items: center;
+}
+
+.scroll-btn {
+    background-color: #333;
+    color: #ffcc00;
+    border: none;
+    font-size: 1.5em;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.character-images {
+    display: flex;
+    overflow: hidden;
+    width: 500px;
+}
+
+.character-images img {
+    width: 100px;
+    margin-right: 10px;
+}
+
+.character-info {
+    margin-left: 20px;
+    max-width: 600px;
+}
+
+.character-info h2 {
+    font-size: 1.5em;
+    color: #ffcc00;
+}
+
+.character-info p {
+    margin-top: 10px;
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+button.watch-now, button.watch-trailer {
+    background-color: #ffcc00;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    margin-top: 20px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+footer {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+footer nav a {
+    color: #ffcc00;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+</style>
+<body>
+    <div class="container">
+        <header>
+            <h1>KIMETSU NO YAIBA</h1>
+            <nav>
+                <a href="home.html">Home</a>
+                <a href="synopsis.html">Synopsis</a>
+                <a href="cast.html">Cast</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="#trailer">Trailer</a>
+            </nav>
+        </header>
+        
+        <section class="hero">
+            <div class="scroll-menu">
+                <button class="scroll-btn">&lt;</button>
+                <div class="character-images">
+                    <img src="Chinibi-Tanjiro-Kamado.jpeg" alt="Character 1">
+                    <img src="chinibi-nezuko.jpeg" alt="Character 2">
+                    <img src="chinibi-zenitsu-agatsuma.jpeg" alt="Character 3">
+                    <img src="chinibi-inosuke.jpeg" alt="Character 4">
+                    <img src="chinibi-naruto.jpeg" alt="Character 4">
+                </div>
+                <button class="scroll-btn">&gt;</button>
+            </div>
+            <div class="character-info">
+                <h2>Tanjiro Kamado</h2>
+                <p>Tanjiro Kamado is a brave young boy with a strong sense of justice...</p>
+                <button class="watch-now">Watch Now</button>
+                <button class="watch-trailer">Watch Trailer</button>
+            </div>
+        </section>
+
+        <footer>
+            <nav>
+                <a href="#guides">Guides</a>
+                <a href="#reads">Reads</a>
+                <a href="review.html">Reviews</a>
+                <a href="news.html">News</a>
+            </nav>
+        </footer>
+    </div>
+
+    <script src="script.js">
+        const scrollBtns = document.querySelectorAll('.scroll-btn');
+const characterImages = document.querySelector('.character-images');
+
+scrollBtns.forEach(button => {
+    button.addEventListener('click', () => {
+        characterImages.scrollBy({
+            left: button.textContent === '<' ? -100 : 100,
+            behavior: 'smooth'
+        });
+    });
+});
+
+    </script>
+</body>
+</html>

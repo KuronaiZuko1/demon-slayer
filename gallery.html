@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demon Slayer Character Slider</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    color: #ffcc00;
+}
+
+.slider {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    text-align: center;
+}
+
+.slide img {
+    width: 100%;
+    border-bottom: 2px solid #ffcc00;
+}
+
+.caption {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+}
+
+.caption h2 {
+    color: #ffcc00;
+    font-size: 1.5em;
+}
+
+.caption p {
+    color: #ddd;
+    font-size: 0.9em;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #ffcc00;
+    border: none;
+    font-size: 2em;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: #ffcc00;
+}
+nav a {
+    color: #ffcc00;
+    margin: 0 15px;
+    text-decoration: none;
+    background: #00a102;
+    border-radius: 3px;
+    width: 60px;
+}
+
+nav a.active {
+    color: #fff;
+}
+
+</style>
+<body>
+    
+    <header>
+        <h1>Demon Slayer Character Slider</h1>
+        <nav>
+            <a href="home.html">Home</a>
+        </nav>
+    </header>
+
+    <section class="slider">
+        <div class="slider-wrapper">
+            <div class="slide">
+                <a href="https://ibb.co/NnLwgw6"><img src="https://i.ibb.co/VpvX0XW/tanjiro-kamado.jpg" alt="tanjiro-kamado" border="0"></a>
+                <div class="caption">
+                    <h2>Tanjiro Kamado</h2>
+                    <p>A kind-hearted boy who becomes a demon slayer to avenge his family and cure his sister, Nezuko.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="nezuko-kamado.jpeg" alt="Nezuko Kamado">
+                <div class="caption">
+                    <h2>Nezuko Kamado</h2>
+                    <p>Tanjiro's sister who was turned into a demon. Despite her condition, she retains her humanity.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="zenitsu-agatsuma.jpeg" alt="Zenitsu Agatsuma">
+                <div class="caption">
+                    <h2>Zenitsu Agatsuma</h2>
+                    <p>A cowardly boy who becomes fearless while unconscious, displaying incredible swordsmanship.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="chinibi-inosuke.jpeg" alt="Inosuke Hashibira">
+                <div class="caption">
+                    <h2>Inosuke Hashibira</h2>
+                    <p>A fierce fighter raised by boars. He wears a boar's head and has a wild, aggressive personality.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="kyojiro-rengoku.jpeg" alt="Kyojuro Rengoku">
+                <div class="caption">
+                    <h2>Kyojuro Rengoku</h2>
+                    <p>The Flame Hashira known for his unwavering dedication and optimism.</p>
+                </div>
+            </div>
+        </div>
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Demon Slayer Fan Site</p>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+
+function showSlide(index) {
+    const slides = document.querySelectorAll(".slide");
+    const totalSlides = slides.length;
+
+    // Wrap around if the index is out of bounds
+    if (index >= totalSlides) {
+        currentSlide = 0;
+    } else if (index < 0) {
+        currentSlide = totalSlides - 1;
+    } else {
+        currentSlide = index;
+    }
+
+    // Calculate the translateX value based on currentSlide
+    const offset = -currentSlide * 100;
+    document.querySelector(".slider-wrapper").style.transform = `translateX(${offset}%)`;
+}
+
+function moveSlide(step) {
+    showSlide(currentSlide + step);
+}
+
+// Initialize the first slide
+showSlide(currentSlide);
+
+    </script>
+</body>
+</html>
